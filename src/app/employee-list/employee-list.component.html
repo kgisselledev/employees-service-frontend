@@ -1,0 +1,41 @@
+<div class = "row">
+  <h2>Buscar empleado por ID</h2>
+</div>
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="input-group">
+        <input type="number" class="form-control" [(ngModel)]="employeeId" placeholder="Employee ID">
+        <div class="input-group-append">
+          <button class="btn btn-primary" style="margin-left: 10px" (click)="searchEmployee()">Search</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col-md-12">
+      <table class="table">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Salary</th>
+          <th>Age</th>
+          <th>Annual Salary</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let employee of employeeList">
+          <td>{{ employee.id }}</td>
+          <td>{{ employee.employee_name }}</td>
+          <td>{{ employee.employee_salary }}</td>
+          <td>{{ employee.employee_age }}</td>
+          <td>{{ calculateAnnualSalary(employee.employee_salary!) }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

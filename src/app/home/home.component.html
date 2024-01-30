@@ -1,0 +1,36 @@
+<div class="container mt-3">
+  <h2>Search by ID</h2>
+  <form (ngSubmit)="searchEmployee()" #searchForm="ngForm">
+    <div class="form-group">
+      <label for="employeeId">Employee ID:</label>
+      <input type="number" id="employeeId" name="employeeId" class="form-control" [(ngModel)]="employeeId" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+  </form>
+
+  <br>
+
+  <div *ngIf="employee">
+    <h2>Employee Details</h2>
+    <table class="table">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Salary</th>
+        <th>Age</th>
+        <th>Annual Salary</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>{{ employee.id }}</td>
+        <td>{{ employee.employee_name }}</td>
+        <td>{{ employee.employee_salary }}</td>
+        <td>{{ employee.employee_age }}</td>
+        <td>{{ calculateAnnualSalary(employee.employee_salary!) }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
